@@ -17,8 +17,8 @@ software
     avrdude 
     make
 hardware:
-    2 arduino
-    leds 
+    2 Arduino
+    LEDs 
     resistors
     breadboard
     jumper cable

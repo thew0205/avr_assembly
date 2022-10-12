@@ -9,8 +9,12 @@ delay_time = 100000
 	.section	.text
 .global	main
 	.type	main, @function
-reset:
-	jmp init
+.vector:
+	jmp init; reset vector first code to execute
+	jmp default_excetpion ; the 24 interrupt source
+	jmp default_excetpion
+	jmp default_excetpion
+	jmp default_excetpion
 	jmp default_excetpion
 	jmp default_excetpion
 	jmp default_excetpion
@@ -71,7 +75,12 @@ main:
 	sbc r26,_zero_reg_
 	sbc r27,_zero_reg_
 	rjmp .delay_loop
+	rjmp .exit
 	.size	main, .-main
+
+.exit:
+	jmp init; restart device
+
 default_excetpion:
 	rjmp default_excetpion
 

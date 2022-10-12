@@ -83,7 +83,10 @@ skip:
 	sbc r26,_zero_reg_
 	sbc r27,_zero_reg_
 	rjmp .delay_loop
+	rjmp .exit
 	.size	main, .-main
+	
+.exit:
 default_excetpion:
 	rjmp default_excetpion
 
